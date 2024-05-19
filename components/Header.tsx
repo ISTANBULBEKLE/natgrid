@@ -1,9 +1,9 @@
 import React from 'react';
-import {View, Button} from 'react-native';
+import {View, Button, StyleSheet} from 'react-native';
 
 function Header(): React.JSX.Element {
   return (
-    <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+    <View style={styles.container}>
       <Button
         title="Home"
         onPress={() => {
@@ -28,5 +28,12 @@ function Header(): React.JSX.Element {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+});
 
 export default Header;
