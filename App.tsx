@@ -1,49 +1,60 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
+// App.tsx
 import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
-
+import {StatusBar, StyleSheet, useColorScheme, View} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import Header from './components/Header';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-function App(): React.JSX.Element {
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Home from './components/Home';
+import Articles from './components/Articles';
+import History from './components/History';
+import {enableScreens} from 'react-native-screens';
+
+const Stack = createNativeStackNavigator();
+
+const App: React.ComponentType<any> = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
-
+  enableScreens();
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <View>
+    <NavigationContainer>
+      <View style={[styles.container, backgroundStyle]}>
         <StatusBar
           barStyle={isDarkMode ? 'light-content' : 'dark-content'}
           backgroundColor={backgroundStyle.backgroundColor}
         />
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={backgroundStyle}>
+        <View style={styles.header}>
           <Header />
-        </ScrollView>
-        <Text>Hello Ekip</Text>
+        </View>
+        <Stack.Navigator>
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="Articles" component={Articles} />
+          <Stack.Screen name="History" component={History} />
+        </Stack.Navigator>
+        <View style={styles.footer}>
+          <Footer />
+        </View>
       </View>
-    </SafeAreaView>
+    </NavigationContainer>
   );
-}
+};
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  header: {
+    backgroundColor: '#f4511e',
+    flex: 0.2,
+  },
+  footer: {
+    flex: 0.3,
+  },
+});
 
 export default App;

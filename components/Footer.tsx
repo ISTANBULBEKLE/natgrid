@@ -1,4 +1,4 @@
-// Header.tsx
+// Footer.tsx
 import React from 'react';
 import {View, Button, StyleSheet} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
@@ -11,15 +11,14 @@ type NavigationProp = NativeStackNavigationProp<
     Articles: undefined;
     History: undefined;
   },
-  'Home' | 'Articles' | 'History'
+  'Articles' | 'History'
 >;
 
-function Header(): React.JSX.Element {
+function Footer(): React.JSX.Element {
   const navigation = useNavigation<NavigationProp>();
 
   return (
     <View style={styles.container}>
-      <Button title="Home" onPress={() => navigation.navigate('Home')} />
       <Button
         title="Articles"
         onPress={() => navigation.navigate('Articles')}
@@ -31,14 +30,10 @@ function Header(): React.JSX.Element {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    backgroundColor: '#ddd',
-    alignContent: 'center',
-    alignItems: 'center',
+    flex: 2,
+    backgroundColor: '#333',
     padding: 10,
   },
 });
 
-export default Header;
+export default Footer;
