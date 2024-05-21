@@ -7,8 +7,9 @@
 
 ## Env set-up for Android
 1. Install Node & Watchan: 
-    ```brew install node
-       brew install watchman
+    ```bash
+    brew install node
+    brew install watchman
     ```
 2. Install Java Development Kit:
     `brew install --cask zulu@17`
@@ -22,9 +23,10 @@
 ## Andropid Developpment Environment
 1. Install Android Studio with `Android SDK`, `Android SDK Platform`, `Android Virtual Device`
 2. Configure the ANDROID_HOME environment variable. Open `~/.zshrc` or `zprofile` and add these;
-```export ANDROID_HOME=$HOME/Library/Android/sdk
-   export PATH=$PATH:$ANDROID_HOME/emulator
-   export PATH=$PATH:$ANDROID_HOME/platform-tools
+```bash
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 ```
 
 
